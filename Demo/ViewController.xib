@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="mytableView" destination="cbu-ji-8Pj" id="xcW-Uw-pVs"/>
+                <outlet property="view" destination="iN0-l3-epB" id="jTT-nZ-l4F"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-ji-8Pj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="592"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Y2O-Nj-hz1"/>
+                        <outlet property="delegate" destination="-1" id="wvX-ea-BFq"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cbu-ji-8Pj" secondAttribute="trailing" id="Ssp-GT-VeR"/>
+                <constraint firstItem="cbu-ji-8Pj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tfe-AU-Zmx"/>
+                <constraint firstItem="cbu-ji-8Pj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="auN-5Z-YNu"/>
+                <constraint firstItem="cbu-ji-8Pj" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="zAE-lA-udu"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
