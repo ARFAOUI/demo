@@ -50,7 +50,6 @@
         return nil;
     }
     NSArray* list = (NSArray*)dict[@"locations"];
-    NSLog(@"%lu",(unsigned long)list.count);
     NSMutableArray* stationsArray = [[NSMutableArray alloc]init];
     for (int i = 0 ; i < list.count; i ++) {
         Station * item = [[Station alloc]init];
@@ -60,7 +59,6 @@
         item.longitude = [[list objectAtIndex:i] objectForKey:@"lon"];
         [stationsArray addObject:item];
     }
-    NSLog(@"%lu",(unsigned long)stationsArray.count);
     return stationsArray;
 }
 @end

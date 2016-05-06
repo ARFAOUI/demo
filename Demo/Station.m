@@ -29,7 +29,6 @@
         return nil;
     }
     NSArray* list = (NSArray*)dict[@"estimates"];
-    NSLog(@"%lu estimates",(unsigned long)list.count);
     if (list.count>0) {
         NSString* UiOutput =[NSString stringWithFormat:@"[%@] Bus direction %@ in %@ min",
                              [[list objectAtIndex:0] objectForKey:@"line"],

@@ -52,7 +52,6 @@
                    placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 
     NSString*timeURL = [NSString stringWithFormat:@"%@/%i",API_ENDPOINT,(int)[myStation stationId]];
-    NSLog(@"%@",timeURL);
     NSURL *secondurl = [NSURL URLWithString:timeURL];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:secondurl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
