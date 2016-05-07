@@ -21,12 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Bus Info";
-    self.myAPIConnector =  [[APIConnector alloc]init];
-    self.myAPIConnector.datasourceDelegate = self;
-    [self.myAPIConnector downloadData];
+    [self startDownload];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)startDownload{
+    if (!self.myAPIConnector) {
+        self.myAPIConnector =  [[APIConnector alloc]init];
+        self.myAPIConnector.datasourceDelegate = self;
+    }
+    [self.myAPIConnector downloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -77,12 +82,24 @@
 }
 
 -(void)didReceiveItems:(NSMutableArray *)items{
+    if (items.count == 0) {
+         [self displayMessage:@"sorry! we have no data to display, please try again later "];
+    }
     self.datasource = items;
     [self.mytableView reloadData];
 }
 
 -(void)didFailReceivingItems:(NSString *)message{
+    [self displayMessage:@"sorry! something wrong with the service, please try again later"];
+}
+
+-(void)displayMessage:(NSString*)message{
     //display message to the user heres
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 @end
