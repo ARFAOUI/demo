@@ -31,6 +31,7 @@
         self.myAPIConnector.datasourceDelegate = self;
     }
     [self.myAPIConnector downloadData];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,10 +57,10 @@
     [cell.stationLocationImage sd_setImageWithURL:[NSURL URLWithString:url]
                    placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 
-    NSString*timeURL = [NSString stringWithFormat:@"%@/%i",API_ENDPOINT,(int)[myStation stationId]];
-    NSURL *secondurl = [NSURL URLWithString:timeURL];
+    NSString*estimateEndpointUrlString = [NSString stringWithFormat:@"%@/%i",API_ENDPOINT,(int)[myStation stationId]];
+    NSURL *estimateEndpointUrl = [NSURL URLWithString:estimateEndpointUrlString];
     
-    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:secondurl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:estimateEndpointUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (data) {
             NSString* text = [myStation timeOftheNextBus:data];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -78,18 +79,19 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.datasource.count;
-    //return 7;
 }
 
 -(void)didReceiveItems:(NSMutableArray *)items{
     if (items.count == 0) {
-         [self displayMessage:@"sorry! we have no data to display, please try again later "];
+         [self displayMessage:@"sorry! we have no data to display right now, please try again later "];
     }
     self.datasource = items;
     [self.mytableView reloadData];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 -(void)didFailReceivingItems:(NSString *)message{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self displayMessage:@"sorry! something wrong with the service, please try again later"];
 }
 
