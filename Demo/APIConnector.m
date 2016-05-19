@@ -59,6 +59,7 @@
         item.longitude = [[list objectAtIndex:i] objectForKey:@"lon"];
         [stationsArray addObject:item];
     }
+    NSLog(@"count : %lu",(unsigned long)stationsArray.count);
     return stationsArray;
 }
 @end

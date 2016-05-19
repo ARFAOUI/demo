@@ -13,6 +13,6 @@
 @interface APIConnector : NSObject
 - (void)downloadData;
 - (NSMutableArray*)parse:(NSData*)data;
-@property (nonatomic,strong) id<DataSourceDelegate> datasourceDelegate;
+@property (nonatomic,weak) id<DataSourceDelegate> datasourceDelegate;
 
 @end

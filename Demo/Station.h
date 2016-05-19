@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface Station : NSObject
-@property (nonatomic,retain) NSString* name;
+@property (nonatomic,strong) NSString* name;
 @property (nonatomic,assign) double stationId;
-@property (nonatomic,retain) NSString* lattitude;
-@property (nonatomic,retain) NSString* longitude;
+@property (nonatomic,strong) NSString* lattitude;
+@property (nonatomic,strong) NSString* longitude;
 
 - (NSString*) locationImageUrl;
 - (NSString*) nameToDiplay;

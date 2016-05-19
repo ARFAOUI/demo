@@ -10,8 +10,9 @@
 #import "APIConnector.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,DataSourceDelegate>
-@property (nonatomic,retain) NSMutableArray*datasource;
-@property (nonatomic,retain) IBOutlet UITableView* mytableView;
-@property (nonatomic,retain) APIConnector *myAPIConnector;
+@property (nonatomic,strong) NSMutableArray*datasource;
+@property (nonatomic,strong) IBOutlet UITableView* mytableView;
+@property (nonatomic,strong) UIRefreshControl*refreshControl;
+@property (nonatomic,strong) APIConnector *myAPIConnector;
 @end
 

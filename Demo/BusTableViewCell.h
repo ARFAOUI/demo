@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @interface BusTableViewCell : UITableViewCell
-@property (nonatomic,retain) IBOutlet UILabel* stationName;
-@property (nonatomic,retain) IBOutlet UILabel* timeRemaining;
-@property (nonatomic,retain) IBOutlet UIImageView* stationLocationImage;
+@property (nonatomic,strong) IBOutlet UILabel* stationName;
+@property (nonatomic,strong) IBOutlet UILabel* timeRemaining;
+@property (nonatomic,strong) IBOutlet UIImageView* stationLocationImage;
 @end
